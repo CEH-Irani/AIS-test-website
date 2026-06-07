@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Automation Society — Stay Ahead of the Curve</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --bg:        #04080f;
+      --bg-200:    #060c18;
+      --bg-300:    #081020;
+      --blue:      #0ea5e9;
+      --blue-dim:  #0284c7;
+      --purple:    #7c3aed;
+      --teal:      #10b981;
+      --muted:     #8893a6;
+      --border:    rgba(255,255,255,0.07);
+      --border-h:  rgba(14,165,233,0.3);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background-color: var(--bg);
+      color: #fff;
+      font-family: 'Plus Jakarta Sans', Arial, sans-serif;
+      font-size: 1rem;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3, h4, h5 {
+      font-family: 'Syne', sans-serif;
+    }
+
+    /* ── NAVBAR ── */
+    .navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      display: flex; align-items: center;
+      padding: 0 5%; min-height: 5rem;
+      background: linear-gradient(180deg, rgba(4,8,15,0.95) 0%, rgba(4,8,15,0.6) 100%);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 0.75rem;
+      text-decoration: none; margin-right: 3rem; flex-shrink: 0;
+    }
+    .nav-logo-text {
+      display: flex; flex-direction: column; line-height: 1.1;
+    }
+    .nav-logo-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.82rem; font-weight: 700; color: #fff;
+      letter-spacing: 0.04em; text-transform: uppercase;
+    }
+    .nav-logo-sub {
+      font-size: 0.6rem; font-weight: 600; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--blue); opacity: 0.85;
+    }
+    .nav-links {
+      display: flex; align-items: center; gap: 2rem; margin-right: auto;
+    }
+    .nav-link {
+      color: rgba(255,255,255,0.65); text-decoration: none;
+      font-size: 0.875rem; font-weight: 500; letter-spacing: 0.2px;
+      transition: color 0.2s;
+    }
+    .nav-link:hover { color: #fff; }
+    .nav-right { display: flex; align-items: center; gap: 1.25rem; }
+    .nav-tag {
+      display: flex; align-items: center; gap: 0.45rem;
+      background: rgba(14,165,233,0.1); border: 1px solid rgba(14,165,233,0.25);
+      border-radius: 100px; padding: 0.3rem 0.75rem;
+      font-size: 0.72rem; font-weight: 600; color: var(--blue);
+      letter-spacing: 0.04em; text-transform: uppercase;
+    }
+    .nav-tag-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--blue);
+      box-shadow: 0 0 6px var(--blue);
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      text-decoration: none; cursor: pointer; border: none;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      letter-spacing: 0.2px; transition: opacity 0.2s, transform 0.18s;
+      border-radius: 100px; font-weight: 600;
+    }
+    .btn:hover { opacity: 0.88; transform: translateY(-1px); }
+    .btn:active { transform: translateY(0); opacity: 1; }
+    .btn-blue {
+      background: var(--blue); color: #fff;
+      font-size: 0.9rem; padding: 0.7rem 1.6rem;
+      box-shadow: 0 0 24px rgba(14,165,233,0.25), 0 4px 12px rgba(0,0,0,0.3);
+    }
+    .btn-blue-lg {
+      background: var(--blue); color: #fff;
+      font-size: 1rem; padding: 0.9rem 2.25rem;
+      box-shadow: 0 0 32px rgba(14,165,233,0.3), 0 4px 16px rgba(0,0,0,0.35);
+    }
+    .btn-outline {
+      background: transparent; color: rgba(255,255,255,0.8);
+      font-size: 0.9rem; padding: 0.68rem 1.5rem;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+    .btn-outline:hover { border-color: rgba(255,255,255,0.3); color: #fff; opacity: 1; }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative; overflow: hidden;
+      padding: 9.5rem 5% 5.5rem;
+      text-align: center;
+    }
+    .hero-glow-1 {
+      position: absolute; top: -120px; left: 50%; transform: translateX(-50%);
+      width: 900px; height: 600px; pointer-events: none;
+      background: radial-gradient(ellipse 60% 55% at 50% 20%, rgba(124,58,237,0.22) 0%, rgba(14,165,233,0.14) 40%, transparent 70%);
+      filter: blur(60px);
+    }
+    .hero-glow-2 {
+      position: absolute; top: 0; right: -200px;
+      width: 600px; height: 500px; pointer-events: none;
+      background: radial-gradient(ellipse 50% 60% at 70% 30%, rgba(14,165,233,0.12) 0%, transparent 65%);
+      filter: blur(80px);
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(14,165,233,0.08); border: 1px solid rgba(14,165,233,0.2);
+      border-radius: 100px; padding: 0.35rem 1rem;
+      font-size: 0.78rem; font-weight: 600; color: var(--blue);
+      letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 2rem;
+    }
+    .hero-h1 {
+      font-size: clamp(2.8rem, 5.8vw, 5.5rem);
+      font-weight: 800; line-height: 1.04;
+      letter-spacing: -0.03em; color: #fff;
+      max-width: 820px; margin: 0 auto 1.75rem;
+    }
+    .hero-h1 .grad {
+      background: linear-gradient(90deg, var(--blue) 0%, var(--purple) 55%, var(--teal) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      color: var(--muted); font-size: 1.05rem; line-height: 1.75;
+      max-width: 560px; margin: 0 auto 2.5rem;
+    }
+    .hero-actions {
+      display: flex; align-items: center; justify-content: center;
+      gap: 1rem; flex-wrap: wrap; margin-bottom: 3.5rem;
+    }
+    .hero-stat-row {
+      display: flex; align-items: center; justify-content: center;
+      gap: 2.5rem; flex-wrap: wrap;
+    }
+    .hero-stat {
+      display: flex; flex-direction: column; align-items: center; gap: 0.15rem;
+    }
+    .hero-stat-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.45rem; font-weight: 700; color: #fff; line-height: 1;
+    }
+    .hero-stat-num .accent { color: var(--blue); }
+    .hero-stat-label { font-size: 0.72rem; color: var(--muted); letter-spacing: 0.04em; font-weight: 500; }
+    .hero-divider { width: 1px; height: 32px; background: rgba(255,255,255,0.1); }
+
+    /* ── SECTION LABELS ── */
+    .section-label {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--blue); margin-bottom: 1rem;
+    }
+    .section-label::before {
+      content: ''; width: 18px; height: 2px; background: var(--blue); border-radius: 2px;
+    }
+
+    /* ── FEATURED ARTICLE ── */
+    .featured-section { padding: 2rem 5% 0; }
+    .featured-card {
+      position: relative; border-radius: 20px; overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: var(--bg-200);
+      display: grid; grid-template-columns: 1fr 480px;
+      min-height: 360px;
+      box-shadow: 0 0 60px rgba(14,165,233,0.06), 0 20px 60px rgba(0,0,0,0.4);
+      transition: border-color 0.25s;
+    }
+    .featured-card:hover { border-color: rgba(14,165,233,0.2); }
+    .featured-content { padding: 3rem 3.5rem; display: flex; flex-direction: column; justify-content: center; }
+    .featured-meta {
+      display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem;
+    }
+    .cat-badge {
+      display: inline-block; border-radius: 4px; padding: 0.2rem 0.6rem;
+      font-size: 0.67rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    .cat-badge.blue { background: rgba(14,165,233,0.15); color: var(--blue); }
+    .cat-badge.purple { background: rgba(124,58,237,0.15); color: #a78bfa; }
+    .cat-badge.teal { background: rgba(16,185,129,0.15); color: var(--teal); }
+    .cat-badge.orange { background: rgba(249,115,22,0.15); color: #fb923c; }
+    .cat-badge.pink { background: rgba(236,72,153,0.15); color: #f472b6; }
+    .meta-date { font-size: 0.75rem; color: var(--muted); }
+    .featured-title {
+      font-size: 1.75rem; font-weight: 700;
+      letter-spacing: -0.02em; color: #fff; line-height: 1.22;
+      margin-bottom: 1rem;
+    }
+    .featured-excerpt {
+      font-size: 0.9rem; color: var(--muted); line-height: 1.7; margin-bottom: 1.75rem;
+    }
+    .read-more {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-size: 0.85rem; font-weight: 600; color: var(--blue);
+      text-decoration: none; letter-spacing: 0.01em;
+      transition: gap 0.2s;
+    }
+    .read-more:hover { gap: 0.65rem; }
+    .featured-image {
+      position: relative; overflow: hidden;
+    }
+    .featured-image img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+    .featured-image-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(90deg, rgba(6,12,24,0.8) 0%, transparent 40%),
+                  linear-gradient(180deg, transparent 40%, rgba(6,12,24,0.6) 100%);
+    }
+
+    /* ── NEWS GRID ── */
+    .news-section { padding: 4.5rem 5%; }
+    .news-header {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      margin-bottom: 2.25rem; flex-wrap: wrap; gap: 1rem;
+    }
+    .news-header-left {}
+    .section-h2 {
+      font-size: 1.9rem; font-weight: 700; color: #fff;
+      letter-spacing: -0.025em; line-height: 1.2;
+    }
+    .news-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+    .news-card {
+      background: var(--bg-200); border: 1px solid var(--border);
+      border-radius: 14px; overflow: hidden; display: flex; flex-direction: column;
+      transition: border-color 0.22s, transform 0.22s;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+    }
+    .news-card:hover { border-color: var(--border-h); transform: translateY(-3px); }
+    .news-card-img {
+      position: relative; height: 188px; overflow: hidden; flex-shrink: 0;
+    }
+    .news-card-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .news-card-img-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, transparent 40%, rgba(6,12,24,0.75) 100%);
+    }
+    .news-card-body { padding: 1.4rem 1.4rem 1.5rem; display: flex; flex-direction: column; flex: 1; }
+    .card-meta { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.75rem; }
+    .card-date { font-size: 0.72rem; color: var(--muted); }
+    .card-title {
+      font-size: 1.02rem; font-weight: 700; color: #fff;
+      letter-spacing: -0.015em; line-height: 1.38; margin-bottom: 0.7rem;
+    }
+    .card-excerpt {
+      font-size: 0.82rem; color: var(--muted); line-height: 1.65;
+      flex: 1; margin-bottom: 1.1rem;
+    }
+    .card-footer {
+      display: flex; align-items: center; justify-content: space-between;
+      border-top: 1px solid var(--border); padding-top: 0.85rem; margin-top: auto;
+    }
+    .card-author {
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .card-avatar {
+      width: 24px; height: 24px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue), var(--purple));
+      flex-shrink: 0; font-size: 0.6rem; color: #fff;
+      display: flex; align-items: center; justify-content: center; font-weight: 700;
+    }
+    .card-author-name { font-size: 0.73rem; color: rgba(255,255,255,0.55); font-weight: 500; }
+
+    /* ── MARQUEE ── */
+    .marquee-section {
+      padding: 2rem 0; overflow: hidden;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: linear-gradient(90deg, rgba(14,165,233,0.03) 0%, transparent 50%, rgba(124,58,237,0.03) 100%);
+    }
+    .marquee-track {
+      display: flex; gap: 3.5rem; align-items: center;
+      animation: marquee 28s linear infinite;
+      white-space: nowrap; width: max-content;
+    }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+    .marquee-item {
+      display: flex; align-items: center; gap: 0.65rem;
+      font-size: 0.8rem; font-weight: 600;
+      color: rgba(255,255,255,0.3); letter-spacing: 0.04em; text-transform: uppercase;
+      flex-shrink: 0;
+    }
+    .marquee-item .dot { width: 4px; height: 4px; border-radius: 50%; background: var(--blue); opacity: 0.5; }
+    .marquee-highlight { color: rgba(14,165,233,0.6); }
+
+    /* ── STATS BAR ── */
+    .stats-section {
+      padding: 5rem 5%;
+    }
+    .stats-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 1px; background: var(--border);
+      border: 1px solid var(--border); border-radius: 16px; overflow: hidden;
+    }
+    .stat-box {
+      background: var(--bg-200); padding: 2.5rem 2rem;
+      display: flex; flex-direction: column; align-items: center; text-align: center;
+      transition: background 0.2s;
+    }
+    .stat-box:hover { background: var(--bg-300); }
+    .stat-number {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.5rem, 4vw, 3.5rem);
+      font-weight: 800; letter-spacing: -0.04em;
+      line-height: 1; margin-bottom: 0.5rem; color: #fff;
+    }
+    .stat-number .accent { color: var(--blue); }
+    .stat-number .accent-purple { color: #a78bfa; }
+    .stat-number .accent-teal { color: var(--teal); }
+    .stat-label { font-size: 0.82rem; color: var(--muted); font-weight: 500; line-height: 1.4; }
+
+    /* ── EVENTS ── */
+    .events-section { padding: 0 5% 5rem; }
+    .events-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem; margin-top: 2.25rem;
+    }
+    .event-card {
+      background: var(--bg-200); border: 1px solid var(--border);
+      border-radius: 14px; padding: 1.75rem; display: flex; flex-direction: column;
+      transition: border-color 0.22s, transform 0.22s;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    }
+    .event-card:hover { border-color: var(--border-h); transform: translateY(-2px); }
+    .event-type-row {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 1.25rem;
+    }
+    .event-badge {
+      font-size: 0.67rem; font-weight: 700; letter-spacing: 0.09em;
+      text-transform: uppercase; padding: 0.22rem 0.65rem;
+      border-radius: 100px;
+    }
+    .event-badge.virtual { background: rgba(14,165,233,0.12); color: var(--blue); border: 1px solid rgba(14,165,233,0.2); }
+    .event-badge.workshop { background: rgba(124,58,237,0.12); color: #a78bfa; border: 1px solid rgba(124,58,237,0.2); }
+    .event-badge.live { background: rgba(16,185,129,0.12); color: var(--teal); border: 1px solid rgba(16,185,129,0.2); }
+    .event-badge.inperson { background: rgba(249,115,22,0.12); color: #fb923c; border: 1px solid rgba(249,115,22,0.2); }
+    .event-spots {
+      font-size: 0.7rem; color: var(--muted); font-weight: 500;
+    }
+    .event-date-block {
+      display: flex; align-items: center; gap: 0.85rem; margin-bottom: 1.1rem;
+    }
+    .event-cal {
+      width: 44px; height: 44px; border-radius: 10px; flex-shrink: 0;
+      background: rgba(14,165,233,0.1); border: 1px solid rgba(14,165,233,0.2);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+    }
+    .event-cal-month {
+      font-size: 0.48rem; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--blue); line-height: 1.2;
+    }
+    .event-cal-day {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.05rem; font-weight: 800; color: #fff; line-height: 1;
+    }
+    .event-date-info {}
+    .event-time { font-size: 0.77rem; color: var(--muted); }
+    .event-title {
+      font-size: 1.05rem; font-weight: 700; color: #fff;
+      letter-spacing: -0.01em; line-height: 1.35; margin-bottom: 0.7rem;
+    }
+    .event-desc { font-size: 0.8rem; color: var(--muted); line-height: 1.6; margin-bottom: 1.5rem; flex: 1; }
+    .event-footer {
+      display: flex; align-items: center; justify-content: space-between;
+      border-top: 1px solid var(--border); padding-top: 1rem;
+    }
+    .event-presenter {
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .event-presenter-img {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--purple), var(--teal));
+      font-size: 0.65rem; color: #fff; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .event-presenter-name { font-size: 0.75rem; color: rgba(255,255,255,0.55); font-weight: 500; }
+    .event-register {
+      font-size: 0.78rem; font-weight: 600; color: var(--blue);
+      text-decoration: none; display: flex; align-items: center; gap: 0.3rem;
+      transition: gap 0.2s;
+    }
+    .event-register:hover { gap: 0.5rem; }
+
+    /* ── NEWSLETTER ── */
+    .newsletter-section {
+      position: relative; overflow: hidden;
+      padding: 6rem 5%;
+      text-align: center;
+    }
+    .newsletter-glow {
+      position: absolute; bottom: -100px; left: 50%; transform: translateX(-50%);
+      width: 900px; height: 500px; pointer-events: none;
+      background: radial-gradient(ellipse 70% 50% at 50% 100%, rgba(14,165,233,0.2) 0%, rgba(124,58,237,0.1) 40%, transparent 70%);
+      filter: blur(60px);
+    }
+    .newsletter-inner { position: relative; z-index: 1; max-width: 580px; margin: 0 auto; }
+    .newsletter-h2 {
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 700; letter-spacing: -0.025em;
+      line-height: 1.18; margin-bottom: 1rem; color: #fff;
+    }
+    .newsletter-sub {
+      font-size: 0.95rem; color: var(--muted); line-height: 1.65; margin-bottom: 2.25rem;
+    }
+    .newsletter-form {
+      display: flex; gap: 0.6rem; max-width: 440px; margin: 0 auto 1rem;
+    }
+    .newsletter-input {
+      flex: 1; background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12); border-radius: 100px;
+      padding: 0.75rem 1.25rem; color: #fff; font-family: inherit; font-size: 0.9rem;
+      outline: none; transition: border-color 0.2s;
+    }
+    .newsletter-input::placeholder { color: var(--muted); }
+    .newsletter-input:focus { border-color: rgba(14,165,233,0.4); }
+    .newsletter-note { font-size: 0.73rem; color: var(--muted); }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 5%;
+    }
+    .footer-top {
+      display: flex; gap: 4rem; margin-bottom: 3rem; flex-wrap: wrap;
+    }
+    .footer-brand { flex-shrink: 0; }
+    .footer-brand-sub {
+      font-size: 0.8rem; color: var(--muted); line-height: 1.6;
+      max-width: 240px; margin-top: 0.85rem;
+    }
+    .footer-cols { display: flex; gap: 4rem; flex: 1; flex-wrap: wrap; }
+    .footer-col-title {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 1rem;
+    }
+    .footer-col-links { display: flex; flex-direction: column; gap: 0.65rem; }
+    .footer-col-link {
+      font-size: 0.82rem; color: rgba(255,255,255,0.5);
+      text-decoration: none; transition: color 0.2s;
+    }
+    .footer-col-link:hover { color: #fff; }
+    .footer-bottom {
+      border-top: 1px solid var(--border); padding-top: 1.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 0.75rem;
+    }
+    .footer-copy { font-size: 0.77rem; color: var(--muted); }
+    .footer-socials { display: flex; gap: 1rem; }
+    .social-icon {
+      width: 32px; height: 32px; border-radius: 8px;
+      background: rgba(255,255,255,0.06); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none; color: var(--muted);
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+    .social-icon:hover { background: rgba(14,165,233,0.12); color: var(--blue); border-color: rgba(14,165,233,0.25); }
+
+    /* ── CATEGORY FILTER TABS ── */
+    .filter-tabs { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .filter-tab {
+      font-size: 0.78rem; font-weight: 600; padding: 0.38rem 0.9rem;
+      border-radius: 100px; cursor: pointer; border: 1px solid transparent;
+      transition: all 0.18s; color: var(--muted); background: transparent;
+      border-color: var(--border); font-family: inherit;
+    }
+    .filter-tab:hover { color: #fff; border-color: rgba(255,255,255,0.2); }
+    .filter-tab.active {
+      background: rgba(14,165,233,0.12); border-color: rgba(14,165,233,0.3); color: var(--blue);
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════ NAVBAR ══════════════════ -->
+<nav class="navbar">
+  <a href="#" class="nav-logo">
+    <!-- AIS Triangle-network mark -->
+    <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="node-glow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#0ea5e9" stop-opacity="0.6"/>
+          <stop offset="100%" stop-color="#0ea5e9" stop-opacity="0"/>
+        </radialGradient>
+        <linearGradient id="mark-grad" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#0ea5e9"/>
+          <stop offset="100%" stop-color="#7c3aed"/>
+        </linearGradient>
+      </defs>
+      <!-- Edges -->
+      <line x1="18" y1="5" x2="5" y2="29" stroke="url(#mark-grad)" stroke-width="1.5" stroke-opacity="0.5"/>
+      <line x1="18" y1="5" x2="31" y2="29" stroke="url(#mark-grad)" stroke-width="1.5" stroke-opacity="0.5"/>
+      <line x1="5" y1="29" x2="31" y2="29" stroke="url(#mark-grad)" stroke-width="1.5" stroke-opacity="0.5"/>
+      <line x1="18" y1="5" x2="18" y2="19" stroke="url(#mark-grad)" stroke-width="1.2" stroke-opacity="0.35"/>
+      <line x1="5" y1="29" x2="18" y2="19" stroke="url(#mark-grad)" stroke-width="1.2" stroke-opacity="0.35"/>
+      <line x1="31" y1="29" x2="18" y2="19" stroke="url(#mark-grad)" stroke-width="1.2" stroke-opacity="0.35"/>
+      <!-- Vertex nodes -->
+      <circle cx="18" cy="5" r="3" fill="url(#mark-grad)" opacity="0.9"/>
+      <circle cx="5" cy="29" r="3" fill="url(#mark-grad)" opacity="0.9"/>
+      <circle cx="31" cy="29" r="3" fill="url(#mark-grad)" opacity="0.9"/>
+      <!-- Center hub -->
+      <circle cx="18" cy="19" r="4.5" fill="url(#mark-grad)"/>
+      <circle cx="18" cy="19" r="7" fill="url(#node-glow)"/>
+    </svg>
+    <div class="nav-logo-text">
+      <span class="nav-logo-title">AI Automation</span>
+      <span class="nav-logo-sub">Society</span>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a href="#news" class="nav-link">News</a>
+    <a href="#events" class="nav-link">Events</a>
+    <a href="#" class="nav-link">Resources</a>
+    <a href="#" class="nav-link">Community</a>
+  </div>
+  <div class="nav-right">
+    <div class="nav-tag">
+      <div class="nav-tag-dot"></div>
+      Live Updates
+    </div>
+    <a href="#join" class="btn btn-blue">Join Free</a>
+  </div>
+</nav>
+
+<!-- ══════════════════ HERO ══════════════════ -->
+<section class="hero" id="hero">
+  <div class="hero-glow-1"></div>
+  <div class="hero-glow-2"></div>
+
+  <div style="position:relative;z-index:1;">
+    <div class="hero-badge">
+      <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M6 1l1.2 3.6L11 6l-3.8 1.4L6 11 4.8 7.4 1 6l3.8-1.4L6 1z" fill="currentColor"/></svg>
+      The Global AI Automation Community
+    </div>
+
+    <h1 class="hero-h1">
+      Stay Ahead of the<br>
+      <span class="grad">AI Automation Curve</span>
+    </h1>
+    <p class="hero-sub">
+      Breaking news, deep-dives, and hands-on resources for builders, operators, and strategists navigating the AI automation revolution.
+    </p>
+
+    <div class="hero-actions">
+      <a href="#join" class="btn btn-blue-lg">Join the Community</a>
+      <a href="#news" class="btn btn-outline">Latest News →</a>
+    </div>
+
+    <div class="hero-stat-row">
+      <div class="hero-stat">
+        <div class="hero-stat-num">12<span class="accent">K+</span></div>
+        <div class="hero-stat-label">Members Worldwide</div>
+      </div>
+      <div class="hero-divider"></div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">240<span class="accent">+</span></div>
+        <div class="hero-stat-label">Workshops Hosted</div>
+      </div>
+      <div class="hero-divider"></div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">58<span class="accent"></span></div>
+        <div class="hero-stat-label">Countries Represented</div>
+      </div>
+      <div class="hero-divider"></div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">3<span class="accent">×</span></div>
+        <div class="hero-stat-label">Weekly Newsletters</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ MARQUEE ══════════════════ -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    <!-- Set 1 -->
+    <span class="marquee-item"><span class="dot"></span><span class="marquee-highlight">New:</span> Claude 3.7 Sonnet — Extended Thinking Mode</span>
+    <span class="marquee-item"><span class="dot"></span> GPT-4o Realtime API Now GA</span>
+    <span class="marquee-item"><span class="dot"></span><span class="marquee-highlight">Trending:</span> n8n vs Make.com — 2025 Automation Showdown</span>
+    <span class="marquee-item"><span class="dot"></span> EU AI Act Enforcement Begins August 2025</span>
+    <span class="marquee-item"><span class="dot"></span><span class="marquee-highlight">Research:</span> AI Agents Replace 30% of SaaS Workflows</span>
+    <span class="marquee-item"><span class="dot"></span> Gemini 2.0 Flash: Fastest Multi-Modal Model Yet</span>
+    <span class="marquee-item"><span class="dot"></span><span class="marquee-highlight">Tool:</span> Cursor 1.0 Ships Full Agent Mode</span>
+    <span class="marquee-item"><span class="dot"></span> OpenAI Operator: Autonomous Web Actions</span>
+    <!-- Set 2 (duplicate for seamless loop) -->
+    <span class="marquee-item"><span class="dot"></span><span class="marquee-highlight">New:</span> Claude 3.7 Sonnet — Extended Thinking Mode</span>
+    <span class="marquee-item"><span class="dot"></span> GPT-4o Realtime API Now GA</span>
+    <span class="marquee-item"><span class="dot"></span><span class="marquee-highlight">Trending:</span> n8n vs Make.com — 2025 Automation Showdown</span>
+    <span class="marquee-item"><span class="dot"></span> EU AI Act Enforcement Begins August 2025</span>
+    <span class="marquee-item"><span class="dot"></span><span class="marquee-highlight">Research:</span> AI Agents Replace 30% of SaaS Workflows</span>
+    <span class="marquee-item"><span class="dot"></span> Gemini 2.0 Flash: Fastest Multi-Modal Model Yet</span>
+    <span class="marquee-item"><span class="dot"></span><span class="marquee-highlight">Tool:</span> Cursor 1.0 Ships Full Agent Mode</span>
+    <span class="marquee-item"><span class="dot"></span> OpenAI Operator: Autonomous Web Actions</span>
+  </div>
+</div>
+
+<!-- ══════════════════ FEATURED ARTICLE ══════════════════ -->
+<section class="featured-section" id="featured">
+  <div class="section-label">Featured Story</div>
+  <a href="#" style="text-decoration:none;" class="featured-card">
+    <div class="featured-content">
+      <div class="featured-meta">
+        <span class="cat-badge blue">In-Depth</span>
+        <span class="meta-date">June 3, 2025</span>
+        <span style="font-size:0.7rem;color:var(--muted);">12 min read</span>
+      </div>
+      <h2 class="featured-title">The Age of AI Agents: How Autonomous Systems Are Reshaping Business Operations in 2025</h2>
+      <p class="featured-excerpt">
+        After years of hype, agentic AI has crossed the chasm from demo to deployment. Companies like Klarna, Shopify, and Duolingo are reporting 20–40% productivity gains from fully autonomous AI workflows. We analyzed what changed, what's working, and what failure modes to avoid.
+      </p>
+      <span class="read-more">Read full story <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </div>
+    <div class="featured-image">
+      <img src="https://placehold.co/480x360/081020/0ea5e9?text=AI+Agents+2025" alt="AI Agents" />
+      <div class="featured-image-overlay"></div>
+    </div>
+  </a>
+</section>
+
+<!-- ══════════════════ LATEST NEWS ══════════════════ -->
+<section class="news-section" id="news">
+  <div class="news-header">
+    <div class="news-header-left">
+      <div class="section-label">Latest News</div>
+      <h2 class="section-h2">What's Happening in AI Automation</h2>
+    </div>
+    <div class="filter-tabs">
+      <button class="filter-tab active" onclick="filterNews(this, 'all')">All</button>
+      <button class="filter-tab" onclick="filterNews(this, 'tools')">Tools</button>
+      <button class="filter-tab" onclick="filterNews(this, 'research')">Research</button>
+      <button class="filter-tab" onclick="filterNews(this, 'industry')">Industry</button>
+      <button class="filter-tab" onclick="filterNews(this, 'tutorial')">Tutorials</button>
+    </div>
+  </div>
+
+  <div class="news-grid">
+
+    <!-- Card 1 -->
+    <a href="#" style="text-decoration:none;" class="news-card">
+      <div class="news-card-img">
+        <img src="https://placehold.co/400x200/060c18/7c3aed?text=Claude+3.7" alt="Claude 3.7" />
+        <div class="news-card-img-overlay"></div>
+      </div>
+      <div class="news-card-body">
+        <div class="card-meta">
+          <span class="cat-badge purple">Models</span>
+          <span class="card-date">May 28, 2025</span>
+        </div>
+        <h3 class="card-title">Claude 3.7 Sonnet's Extended Thinking Mode Sets New Bar for Agentic Reasoning</h3>
+        <p class="card-excerpt">Anthropic's latest model introduces a "thinking budget" that lets agents reason for up to 100K tokens before acting — drastically improving multi-step task accuracy on software engineering and data analysis benchmarks.</p>
+        <div class="card-footer">
+          <div class="card-author">
+            <div class="card-avatar">AK</div>
+            <span class="card-author-name">Alex Kim</span>
+          </div>
+          <span class="read-more" style="font-size:0.77rem;">Read <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Card 2 -->
+    <a href="#" style="text-decoration:none;" class="news-card">
+      <div class="news-card-img">
+        <img src="https://placehold.co/400x200/060c18/10b981?text=n8n+vs+Make" alt="n8n vs Make" />
+        <div class="news-card-img-overlay"></div>
+      </div>
+      <div class="news-card-body">
+        <div class="card-meta">
+          <span class="cat-badge teal">Tools</span>
+          <span class="card-date">May 22, 2025</span>
+        </div>
+        <h3 class="card-title">n8n 1.0 vs Make.com: The 2025 AI Workflow Automation Showdown</h3>
+        <p class="card-excerpt">Both platforms have gone all-in on AI-native workflows. We ran 12 real-world automation scenarios — from AI email triage to multi-agent content pipelines — and scored them across cost, speed, and developer experience.</p>
+        <div class="card-footer">
+          <div class="card-author">
+            <div class="card-avatar" style="background:linear-gradient(135deg,#10b981,#0ea5e9);">SR</div>
+            <span class="card-author-name">Sara Reyes</span>
+          </div>
+          <span class="read-more" style="font-size:0.77rem;">Read <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Card 3 -->
+    <a href="#" style="text-decoration:none;" class="news-card">
+      <div class="news-card-img">
+        <img src="https://placehold.co/400x200/060c18/f59e0b?text=EU+AI+Act" alt="EU AI Act" />
+        <div class="news-card-img-overlay"></div>
+      </div>
+      <div class="news-card-body">
+        <div class="card-meta">
+          <span class="cat-badge orange">Regulation</span>
+          <span class="card-date">May 15, 2025</span>
+        </div>
+        <h3 class="card-title">EU AI Act Enforcement Begins: What Automation Teams Must Do Now</h3>
+        <p class="card-excerpt">As of August 2025, GPAI model providers and high-risk AI deployers face binding obligations under the EU AI Act. Here's a practical compliance checklist for teams building automations with foundation models.</p>
+        <div class="card-footer">
+          <div class="card-author">
+            <div class="card-avatar" style="background:linear-gradient(135deg,#f59e0b,#ef4444);">LM</div>
+            <span class="card-author-name">Léa Martin</span>
+          </div>
+          <span class="read-more" style="font-size:0.77rem;">Read <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Card 4 -->
+    <a href="#" style="text-decoration:none;" class="news-card">
+      <div class="news-card-img">
+        <img src="https://placehold.co/400x200/060c18/0ea5e9?text=OpenAI+Operator" alt="OpenAI Operator" />
+        <div class="news-card-img-overlay"></div>
+      </div>
+      <div class="news-card-body">
+        <div class="card-meta">
+          <span class="cat-badge blue">Platforms</span>
+          <span class="card-date">May 8, 2025</span>
+        </div>
+        <h3 class="card-title">OpenAI Operator Hits GA: Autonomous Web Browsing Comes to Enterprise</h3>
+        <p class="card-excerpt">OpenAI's computer-use agent is now generally available with enterprise SLAs. Early adopters at Salesforce and HubSpot are using it to automate CRM data entry, competitive research, and prospect outreach at scale.</p>
+        <div class="card-footer">
+          <div class="card-author">
+            <div class="card-avatar" style="background:linear-gradient(135deg,#0ea5e9,#7c3aed);">JP</div>
+            <span class="card-author-name">James Park</span>
+          </div>
+          <span class="read-more" style="font-size:0.77rem;">Read <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Card 5 -->
+    <a href="#" style="text-decoration:none;" class="news-card">
+      <div class="news-card-img">
+        <img src="https://placehold.co/400x200/060c18/ec4899?text=Local+AI" alt="Local AI" />
+        <div class="news-card-img-overlay"></div>
+      </div>
+      <div class="news-card-body">
+        <div class="card-meta">
+          <span class="cat-badge pink">Tutorial</span>
+          <span class="card-date">April 30, 2025</span>
+        </div>
+        <h3 class="card-title">Running Private AI Automations Locally with Ollama + LangChain in 2025</h3>
+        <p class="card-excerpt">With Llama 3.1 70B and Qwen 2.5 now running on consumer GPUs, building fully local automation pipelines is finally practical. This guide walks through a complete offline agent setup — no API keys, no data leakage.</p>
+        <div class="card-footer">
+          <div class="card-author">
+            <div class="card-avatar" style="background:linear-gradient(135deg,#ec4899,#7c3aed);">NP</div>
+            <span class="card-author-name">Nina Patel</span>
+          </div>
+          <span class="read-more" style="font-size:0.77rem;">Read <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Card 6 -->
+    <a href="#" style="text-decoration:none;" class="news-card">
+      <div class="news-card-img">
+        <img src="https://placehold.co/400x200/060c18/10b981?text=40hrs+Saved" alt="Case Study" />
+        <div class="news-card-img-overlay"></div>
+      </div>
+      <div class="news-card-body">
+        <div class="card-meta">
+          <span class="cat-badge teal">Case Study</span>
+          <span class="card-date">April 22, 2025</span>
+        </div>
+        <h3 class="card-title">How One Solopreneur Automated 40 Hours Per Week Using Claude + Make.com</h3>
+        <p class="card-excerpt">AIS community member David Chen shares his complete automation stack — from AI-powered email triage and client reporting to proposal drafting and social media scheduling — and how he reclaimed his calendar.</p>
+        <div class="card-footer">
+          <div class="card-author">
+            <div class="card-avatar" style="background:linear-gradient(135deg,#10b981,#0ea5e9);">DC</div>
+            <span class="card-author-name">David Chen</span>
+          </div>
+          <span class="read-more" style="font-size:0.77rem;">Read <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- ══════════════════ STATS ══════════════════ -->
+<section class="stats-section">
+  <div class="stats-grid">
+    <div class="stat-box">
+      <div class="stat-number">12<span class="accent">K+</span></div>
+      <div class="stat-label">Active community<br>members worldwide</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-number"><span class="accent-purple">240+</span></div>
+      <div class="stat-label">Workshops &amp; live<br>sessions hosted</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-number"><span class="accent-teal">58</span></div>
+      <div class="stat-label">Countries with<br>active members</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-number">1<span class="accent">M+</span></div>
+      <div class="stat-label">Newsletter reads<br>per month</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ EVENTS ══════════════════ -->
+<section class="events-section" id="events">
+  <div class="section-label">Upcoming Events</div>
+  <h2 class="section-h2">Learn, Connect, Build</h2>
+
+  <div class="events-grid">
+
+    <!-- Event 1 -->
+    <div class="event-card">
+      <div class="event-type-row">
+        <span class="event-badge virtual">Virtual Summit</span>
+        <span class="event-spots">142 spots left</span>
+      </div>
+      <div class="event-date-block">
+        <div class="event-cal">
+          <div class="event-cal-month">Jun</div>
+          <div class="event-cal-day">25</div>
+        </div>
+        <div class="event-date-info">
+          <div style="font-size:0.82rem;font-weight:600;color:#fff;">Wednesday, June 25</div>
+          <div class="event-time">2:00 PM – 6:00 PM UTC</div>
+        </div>
+      </div>
+      <div class="event-title">AI Workflow Automation Summit 2025</div>
+      <div class="event-desc">A full-afternoon virtual summit covering agentic pipelines, no-code automation stacks, and real-world deployment case studies from operators running AI at scale.</div>
+      <div class="event-footer">
+        <div class="event-presenter">
+          <div class="event-presenter-img">MJ</div>
+          <span class="event-presenter-name">Marcus Johnson + 5 speakers</span>
+        </div>
+        <a href="#" class="event-register">Register <svg width="11" height="11" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </div>
+
+    <!-- Event 2 -->
+    <div class="event-card">
+      <div class="event-type-row">
+        <span class="event-badge workshop">Workshop</span>
+        <span class="event-spots">28 spots left</span>
+      </div>
+      <div class="event-date-block">
+        <div class="event-cal" style="background:rgba(124,58,237,0.1);border-color:rgba(124,58,237,0.25);">
+          <div class="event-cal-month" style="color:#a78bfa;">Jul</div>
+          <div class="event-cal-day">10</div>
+        </div>
+        <div class="event-date-info">
+          <div style="font-size:0.82rem;font-weight:600;color:#fff;">Thursday, July 10</div>
+          <div class="event-time">10:00 AM – 1:00 PM UTC</div>
+        </div>
+      </div>
+      <div class="event-title">Prompt Engineering Masterclass: Agentic Systems</div>
+      <div class="event-desc">Hands-on deep dive into prompting strategies that make AI agents more reliable — including chain-of-thought structuring, tool-call design, and failure recovery patterns.</div>
+      <div class="event-footer">
+        <div class="event-presenter">
+          <div class="event-presenter-img" style="background:linear-gradient(135deg,#7c3aed,#ec4899);">PR</div>
+          <span class="event-presenter-name">Priya Rajan</span>
+        </div>
+        <a href="#" class="event-register">Register <svg width="11" height="11" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </div>
+
+    <!-- Event 3 -->
+    <div class="event-card">
+      <div class="event-type-row">
+        <span class="event-badge inperson">In-Person</span>
+        <span class="event-spots">40 spots left</span>
+      </div>
+      <div class="event-date-block">
+        <div class="event-cal" style="background:rgba(249,115,22,0.1);border-color:rgba(249,115,22,0.25);">
+          <div class="event-cal-month" style="color:#fb923c;">Jul</div>
+          <div class="event-cal-day">18</div>
+        </div>
+        <div class="event-date-info">
+          <div style="font-size:0.82rem;font-weight:600;color:#fff;">Friday, July 18 · London</div>
+          <div class="event-time">6:30 PM – 9:30 PM BST</div>
+        </div>
+      </div>
+      <div class="event-title">AIS Community Meetup: London Chapter</div>
+      <div class="event-desc">Monthly in-person gathering for the London AIS chapter. Lightning talks, live demos, and open networking with practitioners building real-world AI automations.</div>
+      <div class="event-footer">
+        <div class="event-presenter">
+          <div class="event-presenter-img" style="background:linear-gradient(135deg,#f59e0b,#10b981);">TW</div>
+          <span class="event-presenter-name">Tom Walsh (organiser)</span>
+        </div>
+        <a href="#" class="event-register">RSVP <svg width="11" height="11" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════ NEWSLETTER / JOIN ══════════════════ -->
+<section class="newsletter-section" id="join">
+  <div class="newsletter-glow"></div>
+  <div class="newsletter-inner">
+    <div class="section-label" style="justify-content:center;margin-bottom:1.25rem;">
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1l1.2 3.6L11 6l-3.8 1.4L6 11 4.8 7.4 1 6l3.8-1.4L6 1z" fill="currentColor"/></svg>
+      Join the Community
+    </div>
+    <h2 class="newsletter-h2">
+      Get AI Automation<br>News That Matters
+    </h2>
+    <p class="newsletter-sub">
+      3× weekly briefings on the tools, models, workflows, and strategies moving the AI automation space forward. Trusted by 12,000+ practitioners.
+    </p>
+    <form class="newsletter-form" onsubmit="return false;">
+      <input type="email" placeholder="your@email.com" class="newsletter-input" />
+      <button class="btn btn-blue" type="submit">Subscribe</button>
+    </form>
+    <p class="newsletter-note">No spam. Unsubscribe anytime. Read by operators, builders, and researchers.</p>
+  </div>
+</section>
+
+<!-- ══════════════════ FOOTER ══════════════════ -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <!-- Logo repeated small -->
+      <div style="display:flex;align-items:center;gap:0.65rem;">
+        <svg width="28" height="28" viewBox="0 0 36 36" fill="none">
+          <defs>
+            <linearGradient id="fg" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#0ea5e9"/><stop offset="100%" stop-color="#7c3aed"/>
+            </linearGradient>
+          </defs>
+          <line x1="18" y1="5" x2="5" y2="29" stroke="url(#fg)" stroke-width="1.5" stroke-opacity="0.5"/>
+          <line x1="18" y1="5" x2="31" y2="29" stroke="url(#fg)" stroke-width="1.5" stroke-opacity="0.5"/>
+          <line x1="5" y1="29" x2="31" y2="29" stroke="url(#fg)" stroke-width="1.5" stroke-opacity="0.5"/>
+          <circle cx="18" cy="5" r="2.5" fill="url(#fg)" opacity="0.9"/>
+          <circle cx="5" cy="29" r="2.5" fill="url(#fg)" opacity="0.9"/>
+          <circle cx="31" cy="29" r="2.5" fill="url(#fg)" opacity="0.9"/>
+          <circle cx="18" cy="19" r="4" fill="url(#fg)"/>
+        </svg>
+        <div style="display:flex;flex-direction:column;line-height:1.1;">
+          <span style="font-family:Syne,sans-serif;font-size:0.78rem;font-weight:700;color:#fff;letter-spacing:0.04em;text-transform:uppercase;">AI Automation</span>
+          <span style="font-size:0.55rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--blue);opacity:0.85;">Society</span>
+        </div>
+      </div>
+      <p class="footer-brand-sub">The global community for AI automation practitioners, builders, and strategists.</p>
+    </div>
+
+    <div class="footer-cols">
+      <div>
+        <div class="footer-col-title">Content</div>
+        <div class="footer-col-links">
+          <a href="#" class="footer-col-link">Latest News</a>
+          <a href="#" class="footer-col-link">In-Depth Guides</a>
+          <a href="#" class="footer-col-link">Case Studies</a>
+          <a href="#" class="footer-col-link">Tool Reviews</a>
+          <a href="#" class="footer-col-link">Newsletter Archive</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Community</div>
+        <div class="footer-col-links">
+          <a href="#" class="footer-col-link">Events Calendar</a>
+          <a href="#" class="footer-col-link">Discord Server</a>
+          <a href="#" class="footer-col-link">Local Chapters</a>
+          <a href="#" class="footer-col-link">Contribute</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Resources</div>
+        <div class="footer-col-links">
+          <a href="#" class="footer-col-link">Automation Templates</a>
+          <a href="#" class="footer-col-link">Model Comparison</a>
+          <a href="#" class="footer-col-link">Prompt Library</a>
+          <a href="#" class="footer-col-link">Stack Directory</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2025 AI Automation Society. All rights reserved.</span>
+    <div class="footer-socials">
+      <!-- Twitter/X -->
+      <a href="#" class="social-icon" aria-label="X / Twitter">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.736l7.73-8.835L1.254 2.25H8.08l4.261 5.635zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      </a>
+      <!-- LinkedIn -->
+      <a href="#" class="social-icon" aria-label="LinkedIn">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a>
+      <!-- YouTube -->
+      <a href="#" class="social-icon" aria-label="YouTube">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function filterNews(btn, cat) {
+    document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+    // Full implementation would filter cards by data-cat attribute
+  }
+</script>
+
+</body>
+</html>
